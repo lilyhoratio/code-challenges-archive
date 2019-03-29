@@ -1,4 +1,4 @@
-// not passing runtime test
+// not passing runtime test :(
 
 function firstDuplicate(a) {
   let countDupe = 0;
