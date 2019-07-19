@@ -5,11 +5,6 @@
  * @return {boolean}
  */
 
-/**
- * @param {string} moves
- * @return {boolean}
- */
-
 var judgeCircle = function(moves) {
     const movesCount = {
         "U": 0,
@@ -23,13 +18,9 @@ var judgeCircle = function(moves) {
         move = move.toUpperCase(); 
         
         console.log(move);
-        
-        if (movesCount[move] !== undefined) {
-            movesCount[move] += 1
-        } else {
-            console.log("invalid move!")
-            return false;
-        }
+
+        // return movesCount[move] !== undefined ? movesCount[move] += 1 : false;
+        return !movesCount[move] ? false : movesCount[move] += 1;
     })
 
     console.log("moves count obj: ", movesCount)
@@ -43,4 +34,4 @@ console.log(judgeCircle("ud")) // true
 // console.log(judgeCircle("LL")) // false
 // console.log(judgeCircle("LR")) // true
 // console.log(judgeCircle("RRU")) // false
-// console.log(judgeCircle("XRRU")) // false
+// console.log(judgeCircle("XRRU")) // false (invalid move)
