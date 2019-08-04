@@ -85,39 +85,3 @@ function isValid(s) {
     // }
 //     return stack.length===0
 // };
-
-    
-// Doesn't work with forEach
-// var isValid = function(s) {
-//     const stack = [];
-
-//     s.split("").forEach( (paren, index) => {
-//         console.log("Run #: ", index)
-        
-//         if (paren === "(") {
-//             stack.unshift(paren);
-//         }
-        
-//         if (paren === ")") {
-//             if (stack[0] === "(") {
-//                 stack.shift();
-//             } else {
-//                 return false;
-//             }
-//         }
-        
-//         if (paren === "{") {
-//             stack.unshift(paren);
-//         }
-        
-//         if (paren === "}") {
-//             if (stack[0] === "{") {
-//                 stack.shift();
-//             } else {
-//                 return false;
-//             }
-//         }
-//         console.log(stack)
-//     })
-//     return stack.length===0
-// };
