@@ -15,7 +15,7 @@ var removeOuterParentheses = function(S) {
       count++;
       console.log("return string:", returnString);
     } else if (paren === ")") {
-      // don't add to string if is the second
+      // don't add to string if
       if (count !== 1) {
         returnString += paren;
       }
