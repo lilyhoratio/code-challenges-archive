@@ -1,16 +1,36 @@
 // brute force
+// function maxSubarraySizeK(arr, k) {
+//   let maxSum = 0;
+//   let windowSum = 0;
+
+//   for (let i = 0; i < arr.length - k + 1; i++) {
+//     windowSum = 0;
+
+//     for (let j = i; j < i + k; j++) {
+//       windowSum += arr[j];
+//     }
+
+//     maxSum = Math.max(maxSum, windowSum);
+//   }
+//   return maxSum;
+// }
+
+// SLIDING WINDOW
 function maxSubarraySizeK(arr, k) {
   let maxSum = 0;
+  let windowStart = 0;
   let windowSum = 0;
 
-  for (let i = 0; i < arr.length - k + 1; i++) {
-    windowSum = 0;
+  for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    windowSum += arr[windowEnd];
 
-    for (let j = i; j < i + k; j++) {
-      windowSum += arr[j];
+    if (windowEnd >= k - 1) {
+      maxSum = Math.max(maxSum, windowSum);
+
+      windowSum -= arr[windowStart];
+
+      windowStart++;
     }
-
-    maxSum = Math.max(maxSum, windowSum);
   }
   return maxSum;
 }
