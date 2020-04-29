@@ -26,11 +26,10 @@ function findAverageOfSubarrays(arr, K) {
     windowSum += arr[windowEnd];
 
     if (windowEnd >= K - 1) {
-      // -1 (index 4)
       let windowAvg = windowSum / K;
       result.push(windowAvg);
 
-      windowSum -= arr[windowStart]; // 10
+      windowSum -= arr[windowStart];
       windowStart++;
     }
   }
