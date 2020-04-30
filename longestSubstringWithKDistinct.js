@@ -30,4 +30,38 @@ const longest_substring_with_k_distinct = function (str, k) {
   return maxLength;
 };
 
-console.log(longest_substring_with_k_distinct("cbbebi", 3)); // 5
+function longestSubstringWithKDistinct(str, k) {
+  let maxLength = 0;
+  let charFreq = {};
+  let windowStartIdx = 0;
+
+  for (let windowEndIdx = 0; windowEndIdx < str.length; windowEndIdx++) {
+    let rightChar = str[windowEndIdx];
+
+    // populate frequency counter
+    if (!charFreq[rightChar]) {
+      charFreq[rightChar] = 0;
+    }
+    charFreq[rightChar] += 1;
+
+    // let countUniques = Object.keys(charFreq).length;
+
+    while (Object.keys(charFreq).length > k) {
+      let leftChar = str[windowStartIdx];
+
+      charFreq[leftChar] -= 1;
+
+      if (charFreq[leftChar] === 0) {
+        delete charFreq[leftChar];
+      }
+
+      windowStartIdx++;
+    }
+
+    maxLength = Math.max(maxLength, windowEndIdx - windowStartIdx + 1);
+  }
+
+  return maxLength;
+}
+
+console.log(longestSubstringWithKDistinct("cbbebi", 3)); //5
