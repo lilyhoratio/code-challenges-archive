@@ -4,7 +4,6 @@ var removeKdigits = function (num, k) {
   const stack = [];
   let removed = 0;
 
-  // putting each digit onto the stack!
   for (let n of num) {
     while (stack.length && n < stack[stack.length - 1] && removed < k) {
       stack.pop();
@@ -12,21 +11,35 @@ var removeKdigits = function (num, k) {
     }
     stack.push(n);
   }
-  console.log(stack);
 
-  // remove all remaining large numbers
+  // remove remaining large numbers
   while (removed < k) {
     stack.pop();
     removed++;
   }
 
-  // remove leading zeroes
-  while (stack.length && stack[0] === "0") {
-    stack.shift();
-  }
-
+  //   return String(Number(stack.join("")));
   return stack.join("");
 };
 
+// From Azra
+
+// function removeKdigits(num, k) {
+//   if (num.length === k) return "0";
+
+//   const stack = [];
+
+//   for (let n of num) {
+//     while (stack.length > 0 && n < stack[stack.length - 1] && k > 0) {
+//       stack.pop();
+//       k--;
+//     }
+//     stack.push(n);
+//   }
+
+//   console.log(stack);
+// }
+
 // console.log(removeKdigits("10", 1)); // "0"
-console.log(removeKdigits("5337", 2));
+// console.log(removeKdigits("5337", 2));
+console.log(removeKdigits("112", 1)); // "11";
