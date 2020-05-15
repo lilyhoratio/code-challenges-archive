@@ -18,7 +18,12 @@ var removeKdigits = function (num, k) {
     removed++;
   }
 
-  //   return String(Number(stack.join("")));
+  // remove all beginning zeroes
+  while (stack.length && stack[0] === "0") {
+    stack.shift();
+  }
+
+  // return String(Number(stack.join(""))); // this results in bug for large test case
   return stack.join("");
 };
 
