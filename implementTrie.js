@@ -88,45 +88,45 @@ Trie.prototype.startsWith = function (prefix) {
 
 ///// VERSION 2: CLASSES
 
-// class Trie {
-//   constructor() {
-//     this.root = {};
-//   }
+class Trie {
+  constructor() {
+    this.root = {};
+  }
 
-//   insert(word) {
-//     let node = this.root;
+  insert(word) {
+    let node = this.root;
 
-//     for (let char of word) {
-//       //   if (node[char] == null) node[char] = {};
-//       if (!node[char]) node[char] = {};
-//       node = node[char];
-//     }
+    for (let char of word) {
+      //   if (node[char] == null) node[char] = {};
+      if (!node[char]) node[char] = {};
+      node = node[char];
+    }
 
-//     node.isEnd = true;
-//   }
+    node.isEnd = true;
+  }
 
-//   traverse(word) {
-//     let node = this.root;
+  traverse(word) {
+    let node = this.root;
 
-//     for (let char of word) {
-//       node = node[char];
+    for (let char of word) {
+      node = node[char];
 
-//       if (!node) return null;
-//     }
+      if (!node) return null;
+    }
 
-//     return node;
-//   }
+    return node;
+  }
 
-//   search(word) {
-//     let node = this.traverse(word);
+  search(word) {
+    let node = this.traverse(word);
 
-//     return node != null && node.isEnd === true;
-//   }
+    return node != null && node.isEnd === true;
+  }
 
-//   startsWith(prefix) {
-//     return this.traverse(prefix) !== null;
-//   }
-// }
+  startsWith(prefix) {
+    return this.traverse(prefix) !== null;
+  }
+}
 
 // TEST IT OUT
 trie = new Trie();
